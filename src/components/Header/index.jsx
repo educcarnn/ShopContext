@@ -1,6 +1,8 @@
-import { useSelector } from "react-redux"
+
 import { useHistory } from "react-router-dom";
 import { HeaderStyle } from "./style";
+import { CartInContext } from "../../providers/Cart";
+import { useContext } from "react";
 
 function Header(){
     let history = useHistory();
@@ -9,14 +11,14 @@ function Header(){
       history.push("/cart");
     }
 
-    const carts = useSelector(({cart}) => cart);
+    const {infosCart} = useContext(CartInContext)
 
-    return (
+return (
         <HeaderStyle>
                 <h2 className="name">Kenzie Shop</h2>
-                 <span>Quantidade: {carts.length}</span>
+                  <span>Quantidade: {infosCart.length}</span> 
                 <button onClick={handleClick} className="buttonMove">Ir para carrinho</button>
-        </HeaderStyle>
+         </HeaderStyle>
     
     )
 }

@@ -1,24 +1,21 @@
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { remove } from "../../store/Modules/cart/actions";
+
 import { useHistory } from "react-router-dom";
 import { CartInfosBuy, DivHeader, LiItens } from "./style";
 import { UlItens } from "./style";
-
+import { useContext } from "react";
+import { CartInContext } from "../../providers/Cart";
 
 function CartBuy() {
-  const cartItems = useSelector(({ cart }) => cart);
 
-  const dispatch = useDispatch();
+  const {infosCart} = useContext(CartInContext);
+
+  console.log(infosCart)
   const itemsCart = (cartItems) => {
     return (
       <LiItens key={cartItems.id}>
         <span>{cartItems.name}</span>
         <span>{cartItems.price.toFixed(2)}</span>
         <img src={cartItems.image} alt={cartItems.image}></img>
-        <button onClick={() => dispatch(remove(cartItems.id))}>
-          Remover carrinho
-        </button>
       </LiItens>
     );
   };
@@ -29,6 +26,7 @@ function CartBuy() {
     history.push("/");
   }
 
+
   return (
     <>
       <DivHeader>
@@ -37,7 +35,7 @@ function CartBuy() {
       </DivHeader>
 
       <CartInfosBuy>
-        <UlItens>{cartItems.map(itemsCart)}</UlItens>
+        <UlItens>{infosCart.map(itemsCart)}</UlItens>
       </CartInfosBuy>
     </>
   );
