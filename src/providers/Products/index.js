@@ -7,6 +7,7 @@ import Echo from "../../imgs/echo.jpg"
 export const ProductsInContext = createContext()
 
 export const ProductsProvider = ({children}) => {
+    // eslint-disable-next-line no-unused-vars
     const [initialProducts, setInitialProducts] = useState(
         [
             {name: "Echo Dot", price: 279.00, id: 1, image: Echo},
@@ -14,6 +15,7 @@ export const ProductsProvider = ({children}) => {
             {name: "iPhone", price: 500.00, id: 3, image: iPhone}
         ]
     )
+ 
     
 return (
     <ProductsInContext.Provider value={{initialProducts}}>

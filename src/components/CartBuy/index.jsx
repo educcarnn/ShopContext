@@ -8,14 +8,16 @@ import { CartInContext } from "../../providers/Cart";
 function CartBuy() {
 
   const {infosCart} = useContext(CartInContext);
+  const {remove} = useContext(CartInContext)
 
-  console.log(infosCart)
   const itemsCart = (cartItems) => {
     return (
       <LiItens key={cartItems.id}>
         <span>{cartItems.name}</span>
         <span>{cartItems.price.toFixed(2)}</span>
         <img src={cartItems.image} alt={cartItems.image}></img>
+        <button onClick={() => remove(cartItems.id)}>
+          Remover carrinho </button>
       </LiItens>
     );
   };

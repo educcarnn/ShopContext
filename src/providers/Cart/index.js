@@ -18,14 +18,14 @@ export const CartProvider = ({children}) => {
         }   
     }
 
-    const remove = (elem) => {
+    const remove = (id) => {
         toast.success('Produto removido com sucesso')
-        const listNew = infosCart.filter((product) => product.id !== elem.id);
+        const listNew = infosCart.filter((product) => product.id !== id);
         setInfosCart(listNew)
     }
     
     return(
-        <CartInContext.Provider value={{add, remove, infosCart}}>
+        <CartInContext.Provider value={{add, remove, infosCart, setInfosCart}}>
             {children}
         </CartInContext.Provider>
     )

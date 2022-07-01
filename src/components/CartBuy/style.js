@@ -1,13 +1,4 @@
-// display: flex;
-//     height: 13%;
-//     /* width: 63rem; */
-//     padding-left: 33%;
-//     margin-left: -26%;
-//     /* background-color: lightslategray; */
-//     flex-direction: column;
-//     /* justify-content: space-between; */
-//     align-items: flex-start;
-// }
+
 import styled from "styled-components";
 
 export const DivHeader = styled.div`
